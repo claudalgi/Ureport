@@ -46,12 +46,25 @@ urlpatterns = patterns('',
 #     url(r'^router/receive/$', CustomHttpBackendView.as_view(backend_name='kan2http')),
     url(r'^$', TemplateView.as_view(template_name = 'ureport/home.html'), name="new_home"),
     url(r'^join/$', TemplateView.as_view(template_name = 'ureport/how_to_join.html')),
+    
+    url(r'^resultats_sondage/$', TemplateView.as_view(template_name = 'ureport/resultats_sondage.html')),
+    
     url(r'^about_ureport/$', TemplateView.as_view(template_name = 'ureport/about.html')),
+    url(r'^engage/$', TemplateView.as_view(template_name = 'ureport/engage.html')),
+
+    #url(r'^guid/$', TemplateView.as_view(template_name = 'ureport/guid_poll_results.html')),
+   # url(r'^scout/$', TemplateView.as_view(template_name = 'ureport/scout_poll_results.html')),
+   # url(r'^redcross/$', TemplateView.as_view(template_name = 'ureport/redcross_poll_results.html')),
+    
+    url(r'^national_pulse/$', TemplateView.as_view(template_name = 'ureport/national_pulse.html')),
+    url(r'^media/$', TemplateView.as_view(template_name='ureport/media.html')),
     url(r'^ureport-admin/$', 'ureport.views.ureport_content', {'slug':'ureport_home', 'base_template':'ureport/three-square.html', 'num_columns':3}, name='rapidsms-dashboard'),
 #    url('^accounts/login', 'rapidsms.views.login'),
 #    url('^accounts/logout', 'rapidsms.views.logout'),
     url('^accounts/change_password', login_required(password_change), {'template_name':'ureport/change_password.html', 'post_change_redirect':'/'}),
+
     (r'^polls/', include('poll.urls')),
+
     (r'^selectable/', include('selectable.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +\
     router_urls + ureport_urls + contact_urls + generic_urls + ussd_urls + class_urls 

@@ -39,23 +39,77 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+
+
+
+<div class="table1">
+
+	<table class="table11">
+		<tr class="table1a">
+			<td><h3>NATIONAL PULSE</h3></td>
+		</tr>
+		<tr class="table1b">
+		
+         	<td>
+	<div class="container">
     <div>
         <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
     </div>
     <ol class="legend"></ol>
     <div id="ug-chart">
-        <h3> Welcome to National Pulse where you can see what is trending within the U-report community.<br/> Click on your district to see what the young people are talking about where you live.</h3>
+        <h3> Welcome to National Pulse where you can see what is trending within the U-report community.<br/> 
+        Click on your district to see what the young people are talking about where you live.</h3>
         <a class="reset" href="javascript:ugChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
         <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
 
         <div class="clearfix"></div>
     </div>
-
     <div id="national-pie-chart" class="donut control">
         <a class="reset" href="javascript:nationalPieChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
 
     </div>
+
+</div>
+		<label for="s">Select your country below</label>
+		<select id="s">
+  			<option value="Burundi">Burundi</option>
+  			<option value="Uganda">Uganda</option>
+  			<option value="kossovo">kossovo</option>
+  			<option value="Rwanda">Rwanda</option>
+		</select>
+<h2> Show National Pulse</h2>
+	
+		<img src="{{ STATIC_URL }}images/map1.png"/>
+			</td>
+		</tr>
+		<tr class="table1c">
+			<td>
+				<a href="http://www.facebook.com"><img src="{{ STATIC_URL }}images/face.png"/></a>
+				<a href="http://www.google.com"><img src="{{ STATIC_URL }}images/gplus.png"/></a>
+				<a href="http://www.twitter.com"><img src="{{ STATIC_URL }}images/twit.png"/></a>
+				<a href="http://www.youtube.com"><img src="{{ STATIC_URL }}images/you.png"/></a>
+			  </td>
+		</tr>
+	</table>
+	
+	<table class="table12">
+		<tr class="table2a">
+			<td><img src="{{ STATIC_URL }}images/umazi.png"   /></td>
+		</tr>
+		<tr class="table2b">
+			<td>Ureport est deja chez vous.<br>
+			   Exprimez-vous par des sms.
+			</td>
+		</tr>
+		<tr class="table2c">
+			<td> REJOINDRE MAINTENANT <br>
+			    C'est gratuit.
+			  	<span class="image2c"> 
+					<img src="{{ STATIC_URL }}images/telephone.png"/>
+				</span> 
+			</td>
+		</tr>
+	</table>
 
 </div>
 
@@ -108,7 +162,7 @@
 
 		queue()
 			.defer(d3.json, "{{ MEDIA_URL }}ureport/data/districts.json")
-            .defer(d3.json, "{% url pulse_json %}")
+            .defer(d3.json, "{% url "pulse_json" %}")
 			.await(ready);
 
 		function ready(error, ug, category) {
@@ -305,4 +359,3 @@
     }
 </script>
 {% endblock %}
-
