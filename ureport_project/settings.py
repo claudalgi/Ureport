@@ -278,12 +278,14 @@ SMS_APPS = [
 # tabbed navigation. when adding an app to INSTALLED_APPS, you may wish
 # to add it here, also, to expose it in the rapidsms ui.
 RAPIDSMS_TABS = [
+    ('rapidsms.views.dashboard', 'Dashboard'),	
     ("rapidsms.contrib.messagelog.views.message_log",       "Message Log"),
     ("rapidsms.contrib.registration.views.registration",    "Registration"),
     ("rapidsms.contrib.messaging.views.messaging",          "Messaging"),
     ("rapidsms.contrib.locations.views.locations",          "Map"),
     ("rapidsms.contrib.scheduler.views.index",              "Event Scheduler"),
     ("rapidsms.contrib.httptester.views.generate_identity", "Message Tester"),
+    ('polls', 'Polls'),
 ]
 
 LOGIN_REDIRECT_URL = '/'
