@@ -48,7 +48,7 @@ USSD_ENABLED = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ma_base',
+        'NAME': 'report',
         'USER': 'helpdeskadmin',
         'PASSWORD': 'Kigabo47**',
         'HOST': '',
