@@ -167,9 +167,10 @@ urlpatterns = patterns('',
                        url(r"^districtreport/(\d+)/$", generate_per_district_report),
                        url(r"^pulse/$", national_pulse, name='pulse_json'),
                        
-                       url(r'^responses/scouts/(\d+)/$', view_scouts_responses, name='respo_of_scouts'),
-                       url(r'^responses/guides/(\d+)/$', view_scouts_responses, name='respo_of_guides'),
-                       url(r'^responses/redcross/(\d+)/$', view_scouts_responses, name='respo_of_r_c'),
+                       # views for the tree pages, scout, redcross and guides
+                       url(r'^scouts/(\d+)/$',response_views.scouts, name='respo_of_scouts'),
+                       url(r'^guides/(\d+)/$', response_views.guides, name='respo_of_guides'),
+                       url(r'^redcross/(\d+)/$',response_views.redcross, name='respo_of_r_c'),
                                          
 
 
