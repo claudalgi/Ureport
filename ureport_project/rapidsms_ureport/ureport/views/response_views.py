@@ -27,20 +27,22 @@ from django.contrib.auth.models import Group, User #, Message
 from ureport.models import UPoll
 import logging, datetime
 
-# view for tree pages scout, redcross, guide with definition of function
+# view for tree pages scout, redcross, guide 
 def scouts(req, pol):
     responses= Response.objects.filter(contact__groups__name='scout',poll__pk=pol)
-    return render_to_response('ureport/scout_poll_results.html', {'responses': responses,})
+    number_of_members= Contact.objects.count()
+    p= Poll.objects.get(pk=pol)
+    return render_to_response('ureport/scout_poll_results.html', {'responses': responses,'total_ureporters':number_of_members,'poll':p})
 
    
 def guides(req, pol):
     responses= Response.objects.filter(contact__groups__name='guide',poll__pk=pol)
-    return render_to_response('ureport/guid_poll_results.html', {'responses': responses,})
+    number_of_members= Contact.objects.count()
+    p= Poll.objects.get(pk=pol)
+    return render_to_response('ureport/guid_poll_results.html', {'responses': responses,'total_ureporters':number_of_members,'poll':p})
         
 def redcross(req, pol):
-
     responses= Response.objects.filter(contact__groups__name='redcross',poll__pk=pol)
-    template = 'ureport/redcross_poll_results.html'
-    return render_to_response(template, {
-        'responses': responses,
-        })
+    number_of_members= Contact.objects.count()
+    p= Poll.objects.get(pk=pol)
+    return render_to_response('ureport/redcross_poll_results.html', {'responses': responses,'total_ureporters':number_of_members,'poll':p})

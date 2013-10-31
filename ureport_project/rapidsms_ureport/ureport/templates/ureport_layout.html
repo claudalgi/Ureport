@@ -1,6 +1,6 @@
 {% load i18n %}
 {% load humanize %}
-
+{% load staticfiles %}
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -17,7 +17,9 @@
 	    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" />
 	    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}rapidsms/stylesheets/base.css" />
 	    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" />
+	    
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}ureport/stylesheets/ureport_home.css?11">
+        
     {% endblock %}
     <script type="text/javascript" src="{{ STATIC_URL }}ureport/javascripts/jquery.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}ureport/javascripts/ureport.min.js?41"></script>
