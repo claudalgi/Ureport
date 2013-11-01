@@ -1,0 +1,25 @@
+{% extends "ureport_layout.html" %}
+
+ {% block content %}
+    
+<div class="scout_results_principale">
+        
+{% if responses %}
+
+        <h2>RESPONSES OF THE POLL :<br />
+        "{{poll.question}}"
+        </h2>
+        <ul>
+                {% for r in responses %}
+                        <li>
+                        {{ r.message.text }}
+                        </li>
+                {% endfor %}
+        </ul>
+
+{% else %}
+        NO ONE RESPONDED ON THE POLL:<br /> {{poll.question}}!!
+{% endif %}
+
+</div>
+{% endblock %}

@@ -28,21 +28,13 @@ from ureport.models import UPoll
 import logging, datetime
 
 # view for tree pages scout, redcross, guide 
-def scouts(req, pol):
-    responses= Response.objects.filter(contact__groups__name='scout',poll__pk=pol)
-    number_of_members= Contact.objects.count()
-    p= Poll.objects.get(pk=pol)
-    return render_to_response('ureport/scout_poll_results.html', {'responses': responses,'total_ureporters':number_of_members,'poll':p})
 
-   
-def guides(req, pol):
-    responses= Response.objects.filter(contact__groups__name='guide',poll__pk=pol)
+def responses_views(req,gp,pol):
+    responses= Response.objects.filter(contact__groups__name=gp,poll__pk=pol)
     number_of_members= Contact.objects.count()
     p= Poll.objects.get(pk=pol)
-    return render_to_response('ureport/guid_poll_results.html', {'responses': responses,'total_ureporters':number_of_members,'poll':p})
-        
-def redcross(req, pol):
-    responses= Response.objects.filter(contact__groups__name='redcross',poll__pk=pol)
-    number_of_members= Contact.objects.count()
-    p= Poll.objects.get(pk=pol)
-    return render_to_response('ureport/redcross_poll_results.html', {'responses': responses,'total_ureporters':number_of_members,'poll':p})
+    return render_to_response('ureport/responses.html', 
+		{'responses': responses,
+		'total_ureporters':number_of_members,
+		'poll':p},
+		context_instance=RequestContext(req))
