@@ -1720,11 +1720,12 @@ table{
 
 En dessous pour about	
 	
-
-
-	
 .hasi{
 	width: 100%;
 
 	margin-top: 20%;	
 	}
+	
+.responses_page{
+   height: 2000px;
+}	

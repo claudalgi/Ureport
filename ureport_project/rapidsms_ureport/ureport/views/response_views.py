@@ -31,8 +31,8 @@ import logging, datetime
 
 def responses_views(req,gp,pol):
     responses= Response.objects.filter(contact__groups__name=gp,poll__pk=pol)
-    number_of_members= Contact.objects.count()
     p= Poll.objects.get(pk=pol)
+    number_of_members= Contact.objects.count()
     return render_to_response('ureport/responses.html', 
 		{'responses': responses,
 		'total_ureporters':number_of_members,
